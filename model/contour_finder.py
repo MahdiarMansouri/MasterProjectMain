@@ -5,7 +5,7 @@ from madule.clahe_filter import ClaheFilter
 
 
 class ContourFinder:
-    def __init__(self, path, img_number):
+    def __init__(self, path):
         image2clahe = read_img_clahe(path)
         self.image = read_img(path)
         clahe = ClaheFilter(image2clahe)
@@ -20,7 +20,7 @@ class ContourFinder:
         self.contour = Contour(thresh)
         self.cnt = self.contour.contours
         cv2.drawContours(self.image, self.cnt, -1, (255, 0, 0), 2)
-        self.locs = [img_number]
+        self.locs = []
 
     def draw_contours(self):
         i = 1
